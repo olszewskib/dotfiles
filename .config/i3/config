@@ -47,6 +47,9 @@ floating_modifier $mod
 # Disable window borders
 for_window [class="^.*"] border pixel 0
 
+# Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 15px
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
