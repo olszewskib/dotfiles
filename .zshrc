@@ -92,6 +92,8 @@ fi
 # Aliases
 
 alias k="kubectl"
+alias ks="kubens"
+alias kx="kubectx"
 alias d="docker"
 alias cdd="cd ~/Documents"
 alias py="python3"
