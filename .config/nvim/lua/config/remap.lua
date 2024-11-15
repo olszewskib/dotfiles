@@ -35,7 +35,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
-vim.keymap.set("n", "<C-t>", function()
+vim.keymap.set("n", "<leader>t", function()
     local cwd = vim.fn.expand("%:p:h")
     vim.cmd(string.format("silent !tmux split-window -h -c %s", cwd))
 end)
