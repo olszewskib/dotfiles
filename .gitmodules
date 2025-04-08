@@ -10,3 +10,6 @@
 [submodule ".tmux/plugins/tmux-theme-manager"]
 	path = .tmux/plugins/tmux-theme-manager
 	url = https://github.com/olszewskib/tmux-theme-manager.git
+[submodule ".tmux/plugins/tmux-continuum"]
+	path = .tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
