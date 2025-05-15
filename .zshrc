@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin::$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
@@ -77,6 +77,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration#
 #####################
 
+export SUPPRESS_LABEL_WARNING=True
+
 # ssh-agent
 . ~/.gnome-keyring-ssh.sh
 
@@ -84,13 +86,15 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^y' autosuggest-accept
 
 # Envs
-
 if [ -f ~/.zshrc_envs ]; then
     source ~/.zshrc_envs
 fi
 
-# Aliases
+# Navigation
+cdpath=(~/Documents)
+setopt auto_pushd
 
+# Aliases
 alias k="kubectl"
 alias ks="kubens"
 alias kx="kubectx"
