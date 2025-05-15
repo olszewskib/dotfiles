@@ -63,10 +63,10 @@ gaps inner 15px
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 
 # start a browser
-bindsym $mod+b exec "flatpak run io.github.zen_browser.zen"
+bindsym $mod+b exec "zen"
 
 # kill focused window
 bindsym $mod+q kill
@@ -77,10 +77,13 @@ bindsym Control+Mod1+l exec "i3lock -c 000000"
 # vpn
 bindsym Control+Mod1+f exec "forticlient gui"
 
+# arandr
+bindsym $mod+a exec "arandr"
+
 # xrandr scripts
 bindsym Control+Mod1+1 exec "sh /home/bartosz.olszewski@aiclearing.com/.screenlayout/laptop.sh"
 bindsym Control+Mod1+2 exec "sh /home/bartosz.olszewski@aiclearing.com/.screenlayout/home.sh"
-bindsym Control+Mod1+3 exec "sh /home/bartosz.olszewski@aiclearing.com/.screenlayout/aic.sh"
+bindsym Control+Mod1+3 exec "sh /home/bartosz.olszewski@aiclearing.com/.screenlayout/aic2.sh"
 
 # change focus
 bindsym $mod+h focus left
