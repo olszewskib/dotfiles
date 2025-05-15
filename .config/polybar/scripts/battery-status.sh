@@ -22,4 +22,3 @@ else
         echo " $battery_percentage% (Low)"
     fi
 fi
-

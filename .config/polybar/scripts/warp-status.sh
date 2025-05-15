@@ -22,4 +22,3 @@ if [ "$warp_status" == "Connected" ]; then
 else
     echo " WARP: Disconnected"
 fi
-
