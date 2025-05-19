@@ -27,30 +27,35 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
+                "gopls",
+                "jsonls",
+                "bashls",
+                "pyright",
+                "dockerls",
+                "terraformls",
             },
             handlers = {
-                function(server_name) -- default handler (optional)
-
+                function(server_name)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
                 end,
 
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
+                ["pyright"] = function()
+                    require("lspconfig")["pyright"].setup {
                         capabilities = capabilities,
                         settings = {
-                            Lua = {
-				    runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    autoImportCompletions = true,
+                                    useLibraryCodeForTypes = true,
+                                },
+                            },
+                        },
                     }
                 end,
+
             }
         })
 
@@ -68,16 +73,17 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
-            sources = cmp.config.sources({
+            sources = cmp.config.sources(
+            {
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
-            }, {
+                { name = 'luasnip' },
+            },
+            {
                 { name = 'buffer' },
             })
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
