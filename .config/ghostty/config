@@ -1,0 +1,13 @@
+initial-command = tmux attach
+
+font-size = 15
+cursor-style = block
+
+window-decoration = none
+background-opacity = 0.96
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+theme = rose-pine-moon
