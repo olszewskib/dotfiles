@@ -3,8 +3,9 @@ return {
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
+            -- A list of parser names, or "all"
             ensure_installed = {
-                "vimdoc", "c", "lua", "rust", "bash", "hcl", "json", "yaml", "python",
+                "vimdoc", "c", "lua", "rust", "bash", "dart", "python"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -26,7 +27,7 @@ return {
                 -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
                 -- Using this option may slow down your editor, and you may see some duplicate highlights.
                 -- Instead of true it can also be a list of languages
-                additional_vim_regex_highlighting = { "false" },
+                additional_vim_regex_highlighting = {"false"},
             },
         })
 

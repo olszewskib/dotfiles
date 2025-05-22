@@ -22,17 +22,15 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
+        local lspconfig = require("lspconfig")
+
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "gopls",
-                "jsonls",
-                "bashls",
                 "pyright",
-                "dockerls",
-                "terraformls",
             },
             handlers = {
                 function(server_name)
@@ -41,30 +39,59 @@ return {
                     }
                 end,
 
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                runtime = { version = "Lua 5.1" },
+                                diagnostics = {
+                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
+                                }
+                            }
+                        }
+                    }
+                end,
                 ["pyright"] = function()
-                    require("lspconfig")["pyright"].setup {
+                    lspconfig.pyright.setup {
                         capabilities = capabilities,
                         settings = {
                             python = {
                                 analysis = {
-                                    typeCheckingMode = "basic",
+                                    typeCheckingMode = "off",
                                     autoImportCompletions = true,
                                     useLibraryCodeForTypes = true,
-                                },
-                            },
-                        },
+                                }
+                            }
+                        }
                     }
                 end,
-
             }
         })
 
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
+        -- Pyrefly setup
+        local configs = require("lspconfig.configs")
 
+        if not configs.pyrefly then
+          configs.pyrefly = {
+            default_config = {
+              cmd = { "pyrefly", "lsp" },
+              filetypes = { "python" },
+              root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+              end,
+              settings = {},
+            }
+          }
+        end
+        lspconfig.pyrefly.setup({})
+
+
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require('luasnip').lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -73,8 +100,7 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
-            sources = cmp.config.sources(
-            {
+            sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
             },
@@ -84,6 +110,7 @@ return {
         })
 
         vim.diagnostic.config({
+            -- update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
