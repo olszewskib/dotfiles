@@ -1,5 +1,3 @@
-initial-command = tmux attach
-
 font-size = 15
 cursor-style = block
 
