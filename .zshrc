@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin::$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
@@ -77,22 +77,18 @@ source $ZSH/oh-my-zsh.sh
 # User configuration#
 #####################
 
-export SUPPRESS_LABEL_WARNING=True
-
-# ssh-agent
-. ~/.gnome-keyring-ssh.sh
-
 # zsh autosuggest-accept custom bind
 bindkey '^y' autosuggest-accept
+
+# ssh-agent
+if [ -f ~/.gnome-keyring-ssh.sh ]; then
+    . ~/.gnome-keyring-ssh.sh
+fi
 
 # Envs
 if [ -f ~/.zshrc_envs ]; then
     source ~/.zshrc_envs
 fi
-
-# Navigation
-cdpath=(~/Documents)
-setopt auto_pushd
 
 # Aliases
 alias k="kubectl"
@@ -105,7 +101,6 @@ alias c="clear"
 alias vim="nvim"
 alias tg="terragrunt"
 alias lg="lazygit"
-alias db="cd ~/Documents/database_backup"
 alias tf="cd ~/Documents/terraform"
 
 # Functions
