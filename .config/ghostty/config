@@ -1,3 +1,4 @@
+initial-command = zsh
 font-size = 15
 cursor-style = block
 
