@@ -21,7 +21,7 @@ exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/*
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # App launcher
-bindsym $mod+space exec rofi -show combi
+bindsym $mod+space exec rofi -show run
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
