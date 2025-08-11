@@ -15,10 +15,7 @@ set $mod Mod4
 exec_always --no-startup-id zsh ~/.config/polybar/launch.sh
 
 # Wallpaper
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/*
-
-# Capslock to control
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id ~/.config/i3/scripts/set-wallpaper.sh
 
 # App launcher
 bindsym $mod+space exec rofi -show run
@@ -72,13 +69,19 @@ bindsym $mod+b exec "zen"
 bindsym $mod+q kill
 
 # keybinding to lock screen
-bindsym Control+Mod1+l exec "i3lock -c 000000"
+bindsym Control+Mod1+l exec "loginctl lock-session"
 
 # vpn
 bindsym Control+Mod1+f exec "forticlient gui"
 
+# screenshot
+bindsym Control+Mod1+p exec "screenshot"
+
 # arandr
 bindsym $mod+a exec "arandr"
+
+# clipboard manager
+bindsym Control+Mod1+h exec "cistory" 
 
 # xrandr scripts
 bindsym Control+Mod1+1 exec "sh /home/bartosz.olszewski@aiclearing.com/.screenlayout/laptop.sh"

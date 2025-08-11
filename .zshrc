@@ -94,6 +94,8 @@ fi
 alias k="kubectl"
 alias ks="kubens"
 alias kx="kubectx"
+alias knodes="kubectl get nodes -o custom-columns='NAME:.metadata.name,POOL:.metadata.labels.pool,READY:.status.conditions[?(@.type==\"Ready\")].status'"
+alias kpods="kubectl get pods -o custom-columns='NAME:.metadata.name,POOL:.spec.nodeSelector.pool,PHASE:.status.phase'"
 alias d="docker"
 alias cdd="cd ~/Documents"
 alias py="python3"
