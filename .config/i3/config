@@ -63,7 +63,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec ghostty
 
 # start a browser
-bindsym $mod+b exec "zen"
+bindsym $mod+b exec "google-chrome"
 
 # kill focused window
 bindsym $mod+q kill
