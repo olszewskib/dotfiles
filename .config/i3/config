@@ -11,6 +11,9 @@
 
 set $mod Mod4
 
+# Compositor
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
 # Task bar
 exec_always --no-startup-id zsh ~/.config/polybar/launch.sh
 
