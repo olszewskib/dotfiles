@@ -54,6 +54,7 @@ alias vim="nvim"
 alias tg="terragrunt"
 alias lg="lazygit"
 alias tf="cd ~/Documents/terraform"
+alias bt="bluetui"
 
 # Functions
 
