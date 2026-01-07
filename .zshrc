@@ -79,9 +79,6 @@ source $ZSH/oh-my-zsh.sh
 
 export SUPPRESS_LABEL_WARNING=True
 
-# ssh-agent
-. ~/.gnome-keyring-ssh.sh
-
 # zsh autosuggest-accept custom bind
 bindkey '^y' autosuggest-accept
 
