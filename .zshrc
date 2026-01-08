@@ -143,3 +143,6 @@ gbc() {
 drm() {
   docker "$1" ls | awk '{print $1":"$2}'| fzf-tmux -p | xargs docker "$1" rm
 }
+
+# JAVA
+eval "$(jenv init -)"
