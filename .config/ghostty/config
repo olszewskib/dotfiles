@@ -5,11 +5,11 @@ confirm-close-surface = false
 window-padding-x = 10
 window-padding-y = 10
 
-window-decoration = none
+macos-titlebar-style = hidden
+
 background-opacity = 0.9
 background-blur = true
 
-macos-titlebar-style = hidden
 macos-icon = glass
 
 shell-integration-features = no-cursor
