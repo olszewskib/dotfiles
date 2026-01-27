@@ -64,6 +64,7 @@ ZSH_THEME="robbyrussell"
 
 export ZSH_CUSTOM="$ZSH/custom"
 
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -85,6 +86,10 @@ bindkey '^y' autosuggest-accept
 # Envs
 if [ -f ~/.zshrc_envs ]; then
     source ~/.zshrc_envs
+fi
+
+if [ -f ~/.zshrc_starburst ]; then
+    source ~/.zshrc_starburst
 fi
 
 # Navigation
@@ -143,6 +148,3 @@ gbc() {
 drm() {
   docker "$1" ls | awk '{print $1":"$2}'| fzf-tmux -p | xargs docker "$1" rm
 }
-
-# JAVA
-eval "$(jenv init -)"
