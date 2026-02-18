@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin::$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin::$HOME/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
@@ -121,10 +121,6 @@ zshrc() {
     source ~/.zshrc
 }
 
-tfoci() {
-    source ~/.oci/"$1.sh"
-}
-
 sshc() {
   ssh `grep "^Host" ~/.ssh/config | awk '{print $2}' | fzf-tmux -p`
 }
@@ -139,10 +135,6 @@ krm() {
 
 ka() {
   ls -1 | fzf-tmux -p | xargs kubectl apply -f
-}
-
-gbc() {
-  git branch --list | fzf-tmux -p | xargs git checkout
 }
 
 drm() {
